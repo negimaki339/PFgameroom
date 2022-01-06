@@ -2,7 +2,6 @@
 
 ## サイト概要
 ゲームユーザーの交流場所、チーム募集や交流、ゲームイベントの実施や告知
-ゲームニュースなど
 
 ### サイトテーマ
 ゲームユーザー同士の交流
@@ -20,7 +19,8 @@ youtuberやチームメンバー内で、ゲームイベントを実施できる
 ゲームイベント参加など
 
 ## 設計書
-<...> 現在ワイヤーフレームのツールにて設計中
+<...> 
+<https://docs.google.com/presentation/d/1zNvZHzuLr4dFmgs58u_crJIkLwuCUwzALBHmFAy6aJw/edit?usp=sharing>
 
 ## チャレンジ要素一覧
 <https://docs.google.com/spreadsheets/d/1km6Y2tXZClobh3WnzzTKVv1ljf-KzveUV5bPzP_fItg/edit?usp=sharing>
