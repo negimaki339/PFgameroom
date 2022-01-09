@@ -28,7 +28,9 @@
 ER図<br>
 <https://drive.google.com/file/d/1d7cpRc4r4jNm7A99L5cjDutbUbKk3byw/view?usp=sharing><br>
 テーブル定義書<br>
-https://docs.google.com/spreadsheets/d/1s0B2Scm9qYriz0JW6u2DpsmaJMRIMT9STP-W4qBcYiU/edit?usp=sharing
+<https://docs.google.com/spreadsheets/d/1s0B2Scm9qYriz0JW6u2DpsmaJMRIMT9STP-W4qBcYiU/edit?usp=sharing><br>
+アプリケーション詳細設計<br>
+<https://docs.google.com/spreadsheets/d/1rgITsf4NucPWeU7b7fvYMtehVejCfT5LqX9XbR6Efss/edit?usp=sharing>
 
 ## チャレンジ要素一覧
 <https://docs.google.com/spreadsheets/d/1km6Y2tXZClobh3WnzzTKVv1ljf-KzveUV5bPzP_fItg/edit?usp=sharing>
