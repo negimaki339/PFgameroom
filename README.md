@@ -24,9 +24,9 @@
 
 ## 設計書
 フレイムワーク<br>
-<https://docs.google.com/presentation/d/1zNvZHzuLr4dFmgs58u_crJIkLwuCUwzALBHmFAy6aJw/edit?usp=sharing>
+<https://docs.google.com/presentation/d/1zNvZHzuLr4dFmgs58u_crJIkLwuCUwzALBHmFAy6aJw/edit?usp=sharing><br>
 ER図<br>
-https://drive.google.com/file/d/1d7cpRc4r4jNm7A99L5cjDutbUbKk3byw/view?usp=sharing
+<https://drive.google.com/file/d/1d7cpRc4r4jNm7A99L5cjDutbUbKk3byw/view?usp=sharing><br>
 テーブル定義書<br>
 https://docs.google.com/spreadsheets/d/1s0B2Scm9qYriz0JW6u2DpsmaJMRIMT9STP-W4qBcYiU/edit?usp=sharing
 
