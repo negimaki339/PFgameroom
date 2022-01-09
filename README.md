@@ -23,8 +23,12 @@
 チームイベント開催など
 
 ## 設計書
-
+フレイムワーク<br>
 <https://docs.google.com/presentation/d/1zNvZHzuLr4dFmgs58u_crJIkLwuCUwzALBHmFAy6aJw/edit?usp=sharing>
+ER図<br>
+https://drive.google.com/file/d/1d7cpRc4r4jNm7A99L5cjDutbUbKk3byw/view?usp=sharing
+テーブル定義書<br>
+https://docs.google.com/spreadsheets/d/1s0B2Scm9qYriz0JW6u2DpsmaJMRIMT9STP-W4qBcYiU/edit?usp=sharing
 
 ## チャレンジ要素一覧
 <https://docs.google.com/spreadsheets/d/1km6Y2tXZClobh3WnzzTKVv1ljf-KzveUV5bPzP_fItg/edit?usp=sharing>
