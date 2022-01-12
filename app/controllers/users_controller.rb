@@ -5,12 +5,15 @@ class UsersController < ApplicationController
   end
 
   def update
+    @user = User.find(params[:id])
     if @user.update(user_params)
-      redirect_to user_path(@user), notice: "You have updated user successfully."
+      redirect_to teams_path(@user), notice: "You have updated user successfully."
     else
       render "edit"
     end
   end
+  #undefined method `update' for nil:NilClassエラーを起こしたので質問した。
+  #恐らくupdateと定義されていないとの事で@userが定義されていない？
 
 
   private

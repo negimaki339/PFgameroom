@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_09_093521) do
+ActiveRecord::Schema.define(version: 2022_01_12_001444) do
+
+  create_table "members", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "team_id", null: false
+    t.integer "is_approval", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "teams", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -18,7 +26,7 @@ ActiveRecord::Schema.define(version: 2022_01_09_093521) do
     t.string "game_name", null: false
     t.text "team_explanation"
     t.text "overview"
-    t.integer "is_join"
+    t.integer "is_join", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -30,7 +38,7 @@ ActiveRecord::Schema.define(version: 2022_01_09_093521) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.string "name", null: false
-    t.text "profile_image"
+    t.string "profile_image_id"
     t.text "profile"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
