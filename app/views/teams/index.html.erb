@@ -11,6 +11,7 @@
     <tr>
         <td>ゲーム名<%= team.game_name %></td>
         <td>チーム名<%= link_to team.team_name, team_path(team) %></td>
+        <td>リーダー名<%= team.user.name %></td>
         <td>チーム説明<%= team.team_explanation %></td>
 
     </tr>

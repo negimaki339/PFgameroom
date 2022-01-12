@@ -11,20 +11,20 @@
         チーム作成
        <%= form_with model: @team, local:true do |f| %>
         <div class="form-group">
-          <%= label :ゲーム名 %>
+          <%= f.label :ゲーム名 %>
           <%= f.text_field :game_name %>
         </div>
         <div class="form-group">
-          <%= label :チーム名 %>
+          <%= f.label :チーム名 %>
           <%= f.text_field :team_name %>
         </div>
         <div class="form-group">
           <%= f.label :メンバー募集文 %>
           <%= f.text_area :team_explanation %>
         </div>
-          <%= f.radio_button :is_join, true  %>
+          <%= f.radio_button :is_join, 'free'  %>
           <%= f.label :is_join, "自由加入制" %>
-          <%= f.radio_button :is_join, false %>
+          <%= f.radio_button :is_join, 'reqaest' %>
           <%= f.label :is_join, "承認制" %>
           <%= f.submit "新規登録",class:"btn btn-success" %>
         <% end %>
