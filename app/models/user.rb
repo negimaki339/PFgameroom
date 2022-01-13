@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
          has_many :teams, dependent: :destroy
          attachment :profile_image
+         has_many :members
 end

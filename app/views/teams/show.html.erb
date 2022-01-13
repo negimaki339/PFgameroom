@@ -7,6 +7,18 @@
 
         </div>
         チーム詳細画面
+        <td>ゲーム名<%= @team.game_name %></td>
+        <td>チーム名<%= @team.team_name %></td>
+        <td>リーダー名<%= @team.user.name %></td>
+        <td>チーム説明<%= @team.team_explanation %></td>
+        メンバー一覧
+        <% @members.each do |member| %>
+        メンバー名<%= member.user.name %>
+        <% end %>
+        <%= form_with(model:@member) do |f| %>
+          <%= hidden_field_tag :team_id, @team.id %>
+        <%= f.submit "送信" %>
+        <% end %>
 
   </div>
 </div>
