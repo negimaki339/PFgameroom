@@ -1,24 +1,43 @@
 <div class='container px-5 px-sm-0'>
   <div class='row'>
     <div class='col-md-3'>
-      <h2>User info</h2>
-      <%= render 'users/info', user: current_user %>
-
-
+        <h2>User info</h2>
+        <%= render 'users/info', user: current_user %>
+    </div>
+        <div class='col-md-9'>
+            <table class="table table-bordered">
+              <h1 class="my-3 ml-3">チーム詳細画面</h1>
+              <thead>
+                 <tr>
+                    <th>ゲーム名</th>
+                    <th>チーム名</th>
+                    <th>リーダー名</th>
+                 </tr>
+              </thead>
+                 <tbody>
+                   <tr>
+                    <td><%= @team.game_name %></td>
+                    <td><%= @team.team_name %></td>
+                    <td><%= @team.user.name %></td>
+                   </tr>
+                  </tbody>
+              </table>
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                 <th>チーム説明</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><%= @team.team_explanation %></td>
+                </tr>
+              </tbody>
+            </table>
+            <%= form_with(model:@member) do |f| %>
+            <%= hidden_field_tag :team_id, @team.id %>
+            <%= f.submit "メンバーになる" %>
+            <% end %>
         </div>
-        チーム詳細画面
-        <td>ゲーム名<%= @team.game_name %></td>
-        <td>チーム名<%= @team.team_name %></td>
-        <td>リーダー名<%= @team.user.name %></td>
-        <td>チーム説明<%= @team.team_explanation %></td>
-        メンバー一覧
-        <% @members.each do |member| %>
-        メンバー名<%= member.user.name %>
-        <% end %>
-        <%= form_with(model:@member) do |f| %>
-          <%= hidden_field_tag :team_id, @team.id %>
-        <%= f.submit "送信" %>
-        <% end %>
-
   </div>
 </div>

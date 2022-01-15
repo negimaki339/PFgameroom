@@ -3,21 +3,33 @@
     <div class='col-md-3'>
       <h2>User info</h2>
       <%= render 'users/info', user: current_user %>
-
-
     </div>
-    マイチーム一覧ページ
-    <%= link_to 'チーム作成', new_team_path %>
-    <% @teams.each do |team| %>
-    <tr>
-        <td>ゲーム名<%= team.game_name %></td>
-        <td>チーム名<%= link_to team.team_name, myteam_path(team) %></td>
-        <td>リーダー名<%= team.user.name %></td>
-        <td>チーム概要<%= team.overview %></td>
-
-    </tr>
-   <% end %>
-   加入チーム一覧
-
+     <div class='col-md-9'>
+        <table class="table">
+          <h1 class="my-3 ml-3">マイチーム一覧ページ</h1>
+          <thead>
+            <tr>
+                <th>ゲーム名</th>
+                <th>チーム名</th>
+                <th>リーダー名</th>
+                <th>チーム概要</th>
+            </tr>
+          </thead>
+           <tbody>
+              <% @teams.each do |team| %>
+              <% #binding.pry %>
+                <tr>
+                    <td><%= team.game_name %></td>
+                    <td><%= link_to team.team_name, myteam_path(team) %></td>
+                    <td><%= team.user.name %></td>
+                    <td><%= team.overview %></td>
+                </tr>
+              <% end %>
+           </tbody>
+         </table>
+          <%= link_to(new_team_path) do %>
+          <button class="btn1" >チーム作成</button>
+          <% end %>
+　　 </div>
   </div>
 </div>

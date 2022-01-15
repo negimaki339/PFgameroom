@@ -3,18 +3,30 @@
     <div class='col-md-3'>
       <h2>User info</h2>
       <%= render 'users/info', user: current_user %>
-
-
     </div>
-    チーム募集一覧ページ
-    <% @teams.each do |team| %>
-    <tr>
-        <td>ゲーム名<%= team.game_name %></td>
-        <td>チーム名<%= link_to team.team_name, team_path(team) %></td>
-        <td>リーダー名<%= team.user.name %></td>
-        <td>チーム説明<%= team.team_explanation %></td>
+    <div class='col-md-9'>
+    <h1 class="my-3 ml-3">チーム募集一覧ページ</h1>
 
-    </tr>
-   <% end %>
+    <table class="table">
+      <thead>
+        <tr>
+            <th>ゲーム名</th>
+            <th>チーム名</th>
+            <th>リーダー名</th>
+            <th>チーム説明</th>
+        </tr>
+      </thead>
+    　　<% @teams.each do |team| %>
+        <tbody>
+          <tr>
+            <td><%= team.game_name %></td>
+            <td><%= link_to team.team_name, team_path(team) %></td>
+            <td><%= team.user.name %></td>
+            <td><%= team.team_explanation %></td>
+          </tr>
+        </tbody>
+      　<% end %>
+      </table>
+    </div>
   </div>
 </div>

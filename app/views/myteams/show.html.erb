@@ -1,15 +1,41 @@
 <div class='container px-5 px-sm-0'>
   <div class='row'>
-    <div class='col-md-3'>
-      <h2>User info</h2>
-      <%= render 'users/info', user: current_user %>
+      <div class='col-md-3'>
+        <h2>User info</h2>
+        <%= render 'users/info', user: current_user %>
+      </div>
+    <div class='col-md-9'>
+        <%= render 'myteams/myheader', team: @team %>
+        <table class="table table-bordered">
+              <thead>
+                 <tr>
+                    <th>ゲーム名</th>
+                    <th>チーム名</th>
+                    <th>リーダー名</th>
+                 </tr>
+              </thead>
+              <tbody>
+                   <tr>
+                    <td><%= @team.game_name %></td>
+                    <td><%= @team.team_name %></td>
+                    <td><%= @team.user.name %></td>
+                   </tr>
+              </tbody>
+        </table>
+        <table class="table table-bordered">
+              <thead>
+                <tr>
+                 <th>チーム概要</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><%= @team.overview %></td>
+                </tr>
+              </tbody>
+         </table>
 
-
-    </div>
-        マイチーム詳細画面
-        <td>ゲーム名<%= @team.game_name %></td>
-        <td>チーム名<%= @team.team_name %></td>
-        <td>チーム概要<%= @team.overview %></td>
         <td><%= link_to 'Edit', edit_myteam_path(@team) %></td>
+    </div>
   </div>
 </div>

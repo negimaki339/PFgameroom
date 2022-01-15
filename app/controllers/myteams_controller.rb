@@ -1,8 +1,8 @@
 class MyteamsController < ApplicationController
 
   def index
-    @user = User.find(params[:id])
-    @teams = @user.teams
+    @teams = current_user.join_teams.reverse
+    #binding.pry
   end
 
   def show
@@ -22,7 +22,7 @@ class MyteamsController < ApplicationController
   def update
     @team = Team.find(params[:id])
     if @team.update(team_params)
-      redirect_to teams_path(@team), notice: "You have updated book successfully."
+      redirect_to myteam_path(@team), notice: "You have updated book successfully."
     else
       render "edit"
     end
@@ -31,8 +31,13 @@ class MyteamsController < ApplicationController
   def out
   end
 
-  def destroy
-  end
+   def destroy
+     team = team.find(params[:id])
+    if team.user_id == current_user.id
+     team.destroy
+     redirect_to myteam_path(@team)
+    end
+   end
 
   private
 

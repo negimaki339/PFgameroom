@@ -7,4 +7,7 @@ class User < ApplicationRecord
          has_many :teams, dependent: :destroy
          attachment :profile_image
          has_many :members
+         has_many :chats
+         has_many :events
+         has_many :join_teams, through: :members, source: :team
 end

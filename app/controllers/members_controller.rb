@@ -1,4 +1,12 @@
 class MembersController < ApplicationController
+
+  def show
+    @team = Team.find(params[:id])
+    @members = @team.members
+    @user = @team.user
+  end
+
+
   def create
     @team = Team.find(params[:team_id])
     member = current_user.members.new

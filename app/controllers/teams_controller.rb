@@ -1,7 +1,9 @@
 class TeamsController < ApplicationController
 
   def index
-    @teams = Team.all
+    @teams = Team.all.reverse #反転　新しい順から表示
+    
+    
   end
 
   def show
@@ -19,7 +21,10 @@ class TeamsController < ApplicationController
     @team = Team.new(team_params)
     @team.user_id = current_user.id
     if @team.save
-      redirect_to team_path(@team)
+       @member = current_user.members.new
+       @member.team_id = @team.id
+       @member.save
+      redirect_to teams_path(@team)
     else
       @teams = Team.all
       render 'index'
@@ -39,9 +44,18 @@ class TeamsController < ApplicationController
   def update
     @team = Team.find(params[:id])
     if @team.update(team_params)
-      redirect_to teams_path(@team), notice: "You have updated book successfully."
+      redirect_to myteam_path(@team), notice: "You have updated book successfully."
     else
       render "edit"
+    end
+  end
+
+  def destroy
+     @team = Team.find(params[:id])
+     pp @team,current_user
+    if @team.user_id == current_user.id
+     @team.destroy
+     redirect_to myteams_path(id:current_user)
     end
   end
 
