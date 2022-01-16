@@ -6,7 +6,28 @@
     </div>
         <div class='col-md-9'>
              <%= render 'myteams/myheader', team: @team %>
-イベント一覧
+             <h1 class="my-3 ml-3">イベント一覧</h1>
+               <table class="table">
+                  <thead>
+                    <tr>
+                        <th>開始時刻</th>
+                        <th>イベント名</th>
+                        <th>開催者</th>
+                        <th>イベント説明</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                      <tr>
+                        <td><%= @event.time.strftime("%Y年%m月%d日%H時%M分") %></td>
+                        <td><%= link_to @event.event_name, team_events_path %></td>
+                        <td><%= @event.member.user.name %></td>
+                        <td><%= @event.event_explanation %></td>
+                      </tr>
+                    </tbody>
+                </table>
+                <td><%= link_to 'Edit', edit_team_event_path(@team,@event) %></td>
+
+                <%= link_to '削除', team_event_path(@team,@event), method: :delete %>
         </div>
   </div>
 </div>

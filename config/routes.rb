@@ -5,11 +5,14 @@ Rails.application.routes.draw do
   #get 'myteams/:id' => 'myteams#index'
   resources :users,only: [:show,:index,:edit,:update]
   resources :teams
-  resources :members
-  resources :myteams do  #get 'myteams/:id' => 'myteams#index'
+
+  namespace :my do
+  resources :teams do  #get 'myteams/:id' => 'myteams#index'
     resources :chats
-  #resources :events
+    resources :events
+    resources :members
   end
-  resources :events
+  end
+  #resources :events
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

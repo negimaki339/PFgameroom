@@ -5,7 +5,7 @@ class CreateEvents < ActiveRecord::Migration[5.2]
       t.integer :team_id, null: false
       t.string :event_name, null: false
       t.text :event_explanation
-
+      t.datetime :time
       t.timestamps
     end
   end

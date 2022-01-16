@@ -8,10 +8,10 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
 
-          <li><%= link_to 'チーム概要',myteam_path(team) %></li>
-          <li><%= link_to 'チームチャット',myteam_chats_path(team) %></li>
-          <li><%= link_to 'チームイベント',events_path %></li>
-          <li><%= link_to 'メンバー一覧',member_path(team) %></li>
+          <li><%= link_to 'チーム概要',team_path(team) %></li>
+          <li><%= link_to 'チームチャット',team_chats_path(team) %></li>
+          <li><%= link_to 'チームイベント',team_events_path(team) %></li>
+          <li><%= link_to 'メンバー一覧',team_members_path(team) %></li>
         </ul>
       </div>
     </div>

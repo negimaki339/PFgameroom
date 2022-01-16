@@ -2,8 +2,8 @@ class TeamsController < ApplicationController
 
   def index
     @teams = Team.all.reverse #反転　新しい順から表示
-    
-    
+
+
   end
 
   def show

@@ -1,7 +1,7 @@
 class MembersController < ApplicationController
 
-  def show
-    @team = Team.find(params[:id])
+  def index
+    @team = Team.find(params[:myteam_id])
     @members = @team.members
     @user = @team.user
   end
