@@ -1,4 +1,4 @@
-class EventsController < ApplicationController
+class My::EventsController < ApplicationController
 
   def index
      @team = Team.find(params[:team_id])
@@ -21,7 +21,7 @@ class EventsController < ApplicationController
     event.team_id = @team.id
     event.member_id = @member.id
     event.save
-    redirect_to myteam_events_path(@team.id)
+    redirect_to my_team_events_path(@team.id)
   end
 
   def edit
@@ -30,7 +30,7 @@ class EventsController < ApplicationController
     if @event.member.user == current_user
       render 'edit'
     else
-      redirect_to myteam_events_path
+      redirect_to my_team_events_path
     end
 
   end
@@ -40,13 +40,14 @@ class EventsController < ApplicationController
     team = Team.find(params[:team_id])
     event = Event.find(params[:id])
     if event.update(event_params)
-      redirect_to team_event_path(team,event)
+      redirect_to my_team_event_path(team,event)
     else
       render "edit"
     end
   end
 
   def destroy
+    
   end
 private
 

@@ -8,7 +8,7 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
         <% if user_signed_in? %>
-          <li><%= link_to ' マイチーム一覧',teams_path(id:current_user),class: 'fas fa-home nav-link text-light' %></li>
+          <li><%= link_to ' マイチーム一覧',my_teams_path(id:current_user),class: 'fas fa-home nav-link text-light' %></li>
           <li><%= link_to ' チーム募集一覧',teams_path,class: 'fas fa-users nav-link text-light' %></li>
           <li><%= link_to ' ログアウト', destroy_user_session_path, method: :delete,class: 'fas fa-sign-out-alt nav-link text-light' %></li>
         <% else %>

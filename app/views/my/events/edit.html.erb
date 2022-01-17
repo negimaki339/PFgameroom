@@ -1,5 +1,5 @@
 マイチーム編集画面
-<%= form_with model: [@team, @event], local:true do |f| %>
+<%= form_with model: [@team, @event],url:my_team_event_path(@team.id,@event.id), local:true do |f| %>
 <div class="form-group">
     <%= f.label :イベント名 %>
     <%= f.text_field :event_name %>

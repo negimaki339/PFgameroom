@@ -4,7 +4,7 @@
       <h2>User info</h2>
       <%= render 'users/info', user: current_user %>
       </div>
-      <%= form_with model: [:myteam, @event], local:true do |f| %>
+      <%= form_with model: [:my_team, @event], local:true do |f| %>
       <%= f.label :イベント名 %>
       <%= f.text_field :event_name %>
       <%= f.label :イベント説明 %>

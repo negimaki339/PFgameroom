@@ -1,4 +1,4 @@
-class MembersController < ApplicationController
+class My::MembersController < ApplicationController
 
   def index
     @team = Team.find(params[:myteam_id])

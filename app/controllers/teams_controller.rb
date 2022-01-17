@@ -44,7 +44,7 @@ class TeamsController < ApplicationController
   def update
     @team = Team.find(params[:id])
     if @team.update(team_params)
-      redirect_to myteam_path(@team), notice: "You have updated book successfully."
+      redirect_to my_team_path(@team), notice: "You have updated book successfully."
     else
       render "edit"
     end

@@ -35,7 +35,7 @@
               </tbody>
             </table>
 
-            <%= form_with(model: [@team, @member],url: myteam_members_path(@team) ) do |f| %>
+            <%= form_with(model: [@team, @member],url: my_team_members_path(@team) ) do |f| %>
             <%= hidden_field_tag :team_id, @team.id %>
             <%= f.submit "メンバーになる" %>
             <% end %>

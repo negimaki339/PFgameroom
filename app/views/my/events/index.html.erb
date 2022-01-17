@@ -5,7 +5,7 @@
         <%= render 'users/info', user: current_user %>
     </div>
         <div class='col-md-9'>
-             <%= render 'myteams/myheader', team: @team %>
+             <%= render 'my/teams/myheader', team: @team %>
                <h1 class="my-3 ml-3">イベント一覧</h1>
                <table class="table">
                   <thead>
@@ -20,14 +20,14 @@
                     <tbody>
                       <tr>
                         <td><%= event.time.strftime("%Y年%m月%d日%H時%M分") %></td>
-                        <td><%= link_to event.event_name, team_event_path(@team,event) %></td>
+                        <td><%= link_to event.event_name, my_team_event_path(@team,event) %></td>
                         #ネストしてるshowページには
                         <td><%= event.member.user.name %></td>
                         <td><%= event.event_explanation %></td>
                       </tr>
                     </tbody>
                   <% end %>
-                <%= link_to(new_team_event_path) do %>
+                <%= link_to(new_my_team_event_path) do %>
                 新規イベント作成
                 <% end %>
         </div>
