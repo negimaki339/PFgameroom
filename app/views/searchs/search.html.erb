@@ -1,0 +1,7 @@
+<% if @model == 'team_name' %>
+  <h3>【チーム名の検索結果】検索ワード：<%= @content %></h3>
+  <%= render 'teams/index', teams: @records %>
+<% else @model == 'game_name' %>
+  <h3>【ゲーム名の検索結果】検索ワード：<%= @content %></h3>
+    <%= render 'teams/index', teams: @records %>
+<% end %>

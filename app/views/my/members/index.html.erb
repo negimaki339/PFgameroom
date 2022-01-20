@@ -32,4 +32,8 @@
               </tr>
             <% end %>
           </tbody>
+          <%= link_to my_team_member_path(@team, current_user.members.find_by(team_id: @team.id)), method: :delete do |f| %>
+            脱退する
+            <% end %>
+            <!--メンターに質問する-->
       </table>

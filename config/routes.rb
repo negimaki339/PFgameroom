@@ -2,15 +2,18 @@ Rails.application.routes.draw do
   devise_for :users
   root 'homes#top'
   get 'home/about' => 'homes#about'
-  #get 'myteams/:id' => 'myteams#index'
-  resources :users,only: [:show,:index,:edit,:update]
+  get '/search' => 'searchs#search'
+
+  resources :users, only: [:show,:index,:edit,:update]
   resources :teams
 
   namespace :my do
   resources :teams do  #get 'myteams/:id' => 'myteams#index'
-    resources :chats
+    resources :chats, only: [:index, :create, :destroy]
     resources :events
-    resources :members
+    resources :applies, only: %i[index create destroy]
+    resources :members, only: [:index, :create, :destroy]
+    get '/join' => 'members#join'
   end
   end
   #resources :events

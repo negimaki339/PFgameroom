@@ -1,0 +1,6 @@
+ja:
+ enums:
+   team:
+     is_join:
+       free: "自由加入制"
+       approval: "承認制"

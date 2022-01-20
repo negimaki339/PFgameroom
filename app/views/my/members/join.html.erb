@@ -1,0 +1,35 @@
+<div class='container px-5 px-sm-0'>
+  <div class='row'>
+      <div class='col-md-3'>
+        <h2>User info</h2>
+        <%= render 'users/info', user: current_user %>
+      </div>
+    <div class='col-md-9'>
+      <%= render 'my/teams/myheader', team: @team %>
+      <table class="table">
+          <thead>
+              <tr>
+                  <th>リーダー名</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                  <td><%= @team.user.name %></td>
+              </tr>
+          </tbody>
+      <table class="table">
+          <thead>
+              <tr>
+                  <th>メンバー名</th>
+                  <th>加入申請中</th>
+              </tr>
+          </thead>
+          <tbody>
+            <% @members.each do |member| %>
+              <tr>
+                  <td><%= member.user.name %></td>
+              </tr>
+            <% end %>
+          </tbody>
+
+      </table>

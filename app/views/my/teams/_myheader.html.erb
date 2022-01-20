@@ -12,6 +12,11 @@
           <li><%= link_to 'チームチャット',my_team_chats_path(team) %></li>
           <li><%= link_to 'チームイベント',my_team_events_path(team) %></li>
           <li><%= link_to 'メンバー一覧',my_team_members_path(team) %></li>
+          <li>
+            <% if team.user == current_user %>
+                         <%= link_to "承認待ち一覧",my_team_join_path(team) %>
+                        <% end %>
+          </li>
         </ul>
       </div>
     </div>

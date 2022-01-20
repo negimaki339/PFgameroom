@@ -25,7 +25,7 @@
         <%= hidden_field_tag :team_id, @team.id %>
           <%= f.radio_button :is_join, 'free'  %>
           <%= f.label :is_join, "自由加入制" %>
-          <%= f.radio_button :is_join, 'reqaest' %>
+          <%= f.radio_button :is_join, 'approval' %>
           <%= f.label :is_join, "承認制" %>
           <%= f.submit "新規登録",class:"btn btn-success" %>
         <% end %>

@@ -16,17 +16,17 @@
                         <th>イベント説明</th>
                     </tr>
                   </thead>
-                  <%= @events.each do |event| %>
                     <tbody>
+                      <% @events.each do |event| %>
                       <tr>
                         <td><%= event.time.strftime("%Y年%m月%d日%H時%M分") %></td>
                         <td><%= link_to event.event_name, my_team_event_path(@team,event) %></td>
-                        #ネストしてるshowページには
                         <td><%= event.member.user.name %></td>
                         <td><%= event.event_explanation %></td>
                       </tr>
+                      <% end %>
                     </tbody>
-                  <% end %>
+                  </table>
                 <%= link_to(new_my_team_event_path) do %>
                 新規イベント作成
                 <% end %>
