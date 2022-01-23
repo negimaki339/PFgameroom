@@ -1,1 +1,37 @@
-ユーザー詳細画面
+<div class='container px-5 px-sm-0'>
+  <div class='row'>
+    <div class='col-md-3'>
+        <h2>User info</h2>
+        <%= render 'users/info', user: current_user %>
+    </div>
+        <div class='col-md-9'>
+            <table class="table table-bordered">
+              <h1 class="my-3 ml-3">ユーザー情報</h1>
+              <thead>
+                 <tr>
+                    <th>イメージ画像</th>
+                    <th>ユーザー名</th>
+                 </tr>
+              </thead>
+                 <tbody>
+                   <tr>
+                    <td><%= attachment_image_tag(@user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg") %></td>
+                    <td><%= @user.name %></td>
+                   </tr>
+                  </tbody>
+              </table>
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>プロフィール</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><%= @user.profile %></td>
+                </tr>
+              </tbody>
+            </table>
+      </div>
+  </div>
+</div>

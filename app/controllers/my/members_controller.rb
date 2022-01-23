@@ -2,7 +2,8 @@ class My::MembersController < ApplicationController
 
   def index
     @team = Team.find(params[:team_id])
-    @members = @team.members
+    @members = @team.member_list
+    #@user = User.find(params[:team_id])
     #@user = @team.user
     #@member = @team.current_user
     #@user = Current_user
@@ -10,7 +11,15 @@ class My::MembersController < ApplicationController
 
   def join
     @team = Team.find(params[:team_id])
-    @members = @team.members
+    @members = @team.wait_member_list
+  end
+
+  def update
+    @team = Team.find(params[:team_id])
+    @approval_member = @team.members.find(params[:id])
+    @approval_member.is_approval = 0
+    @approval_member.save
+    redirect_to my_team_members_path(@team)
   end
 
   def create
@@ -28,9 +37,10 @@ class My::MembersController < ApplicationController
   end
 
    def destroy
-    member = Member.find(params[:id])
+    @team = Team.find(params[:team_id])
+    member = Member.find(params[:team_id])
     member.destroy
-    redirect_to my_teams_path
+    redirect_to my_team_members_path(@team)
    end
 
   private

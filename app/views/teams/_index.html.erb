@@ -5,16 +5,19 @@
             <th>チーム名</th>
             <th>リーダー名</th>
             <th>チーム説明</th>
+            <th>加入ステータス</th>
         </tr>
       </thead>
-    　　<% teams.each do |team| %>
+       <% teams.each do |team| %>
+       <%# binding.pry %>
         <tbody>
           <tr>
             <td><%= team.game_name %></td>
             <td><%= link_to team.team_name, team_path(team) %></td>
             <td><%= team.user.name %></td>
             <td><%= team.team_explanation %></td>
+            <td><%= team.is_join_i18n %></td>
           </tr>
         </tbody>
-      　<% end %>
+       <% end %>
       </table>

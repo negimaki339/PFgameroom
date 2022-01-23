@@ -6,17 +6,7 @@
       </div>
     <div class='col-md-9'>
       <%= render 'my/teams/myheader', team: @team %>
-      <table class="table">
-          <thead>
-              <tr>
-                  <th>リーダー名</th>
-              </tr>
-          </thead>
-          <tbody>
-              <tr>
-                  <td><%= @team.user.name %></td>
-              </tr>
-          </tbody>
+      <h1>承認待ち一覧</h1>
       <table class="table">
           <thead>
               <tr>
@@ -25,11 +15,18 @@
               </tr>
           </thead>
           <tbody>
-            <% @members.each do |member| %>
+             <% @members.each do |member| %>
               <tr>
-                  <td><%= member.user.name %></td>
+                  <td><%= link_to member.user.name, user_path(member.user) %></td>
+                  <td>
+                    <%= link_to "承認", my_team_member_path(@team,member), method: :patch, class:"mini-green-link-btn font-bold text-line-none" %>
+                    <%= link_to "却下", my_team_member_path(@team,member), method: :delete, class:"mini-red-link-btn font-bold text-line-none" %>
+                    <!--パスにチームIDとメンバーIDを渡す-->
+                  </td>
               </tr>
-            <% end %>
+              <% end %>
           </tbody>
-
       </table>
+    </div>
+    </div>
+    </div>

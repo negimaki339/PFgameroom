@@ -1,7 +1,9 @@
 class My::TeamsController < ApplicationController
 
   def index
-    @teams = current_user.join_teams.reverse
+    @teams = Team.includes(:members).where(members: {is_approval: 0, user_id: current_user.id}).reverse # チームテーブルとmembersテーブルを結合してmembersテーブルに含まれるユーザがcurrent_userでかつ承認済みの値を取得する
+#    @teams = current_user.join_teams #今のユーザーがメンバーとして加入しているチームを表示する
+#    @teams = @teams.includes(:).where(is_approval: 0).reverse #メンバーステータスの承認しているメンバーで条件指定する
     #binding.pry
   end
 

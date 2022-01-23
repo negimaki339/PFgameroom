@@ -30,9 +30,9 @@ ActiveRecord::Schema.define(version: 2022_01_20_091739) do
     t.integer "team_id", null: false
     t.string "event_name", null: false
     t.text "event_explanation"
+    t.datetime "time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.datetime "time"
   end
 
   create_table "members", force: :cascade do |t|

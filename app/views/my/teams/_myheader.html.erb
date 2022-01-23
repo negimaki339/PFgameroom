@@ -1,5 +1,5 @@
 <myheader>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
     <div class="container">
       <a class="navbar-brand" ><span>マイチーム</span></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -8,13 +8,13 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
 
-          <li><%= link_to 'チーム概要',my_team_path(team) %></li>
-          <li><%= link_to 'チームチャット',my_team_chats_path(team) %></li>
-          <li><%= link_to 'チームイベント',my_team_events_path(team) %></li>
-          <li><%= link_to 'メンバー一覧',my_team_members_path(team) %></li>
+          <li><%= link_to team.team_name,my_team_path(team), class: 'fas fa-home nav-link text-light' %></li>
+          <li><%= link_to 'チームチャット',my_team_chats_path(team), class: "fas fa-comment nav-link text-light" %></li>
+          <li><%= link_to 'チームイベント',my_team_events_path(team), class: 'fas fa-bullhorn nav-link text-light' %></li>
+          <li><%= link_to 'メンバー一覧',my_team_members_path(team), class: 'fas fa-address-book nav-link text-light' %></li>
           <li>
             <% if team.user == current_user %>
-                         <%= link_to "承認待ち一覧",my_team_join_path(team) %>
+                         <%= link_to "承認待ち一覧",my_team_join_path(team), class: 'fas fa-address-card nav-link text-light' %>
                         <% end %>
           </li>
         </ul>

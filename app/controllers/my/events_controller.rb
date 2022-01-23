@@ -47,7 +47,9 @@ class My::EventsController < ApplicationController
   end
 
   def destroy
-    
+    event = Event.find(params[:id])
+    event.destroy
+    redirect_to my_team_events_path(params[:id])
   end
 private
 

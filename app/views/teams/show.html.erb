@@ -34,15 +34,17 @@
                 </tr>
               </tbody>
             </table>
-            <% if @team.member_by?(current_user) %>
-            すでにメンバーになっています。
+            <% if @team.members.find_by(user_id: current_user.id, is_approval: 0 ) %><!--チームの中のメンバー全員の中で自身のユーザーIDを取り、なおかつステータスが0(承認)ならtrue-->
+            あなたはこのチームのメンバーです。
+            <% elsif @team.members.find_by(user_id: current_user.id, is_approval: 2 ) %><!--チームの中のメンバー全員の中で自身のユーザーIDを(find_by)取り、なおかつステータスが2(承認待ち)ならtrue-->
+            加入申請中
             <% else %>
             <%= form_with(model: [@team, @member],url: my_team_members_path(@team) ) do |f| %>
             <%= hidden_field_tag :team_id, @team.id %>
             <%= f.submit "メンバーになる" %>
             <% end %>
           <% end %>
-  
+
         </div>
   </div>
 </div>

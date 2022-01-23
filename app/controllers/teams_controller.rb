@@ -23,6 +23,7 @@ class TeamsController < ApplicationController
     if @team.save
        @member = current_user.members.new
        @member.team_id = @team.id
+       @member.is_approval = 0
        @member.save
       redirect_to teams_path(@team)
     else
@@ -55,7 +56,7 @@ class TeamsController < ApplicationController
      pp @team,current_user
     if @team.user_id == current_user.id
      @team.destroy
-     redirect_to myteams_path(id:current_user)
+     redirect_to my_teams_path(id:current_user)
     end
   end
 

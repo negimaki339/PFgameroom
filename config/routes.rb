@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     resources :chats, only: [:index, :create, :destroy]
     resources :events
     resources :applies, only: %i[index create destroy]
-    resources :members, only: [:index, :create, :destroy]
+    resources :members, only: [:index, :create, :update, :destroy]
     get '/join' => 'members#join'
   end
   end
