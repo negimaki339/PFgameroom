@@ -16,20 +16,20 @@
             </tr>
           </thead>
            <tbody>
-              <% @teams.each do |team| %>
-              <% #binding.pry %>
-                <tr>
-                    <td><%= team.game_name %></td>
-                    <td><%= link_to team.team_name, my_team_path(team) %></td>
-                    <td><%= team.user.name %></td>
-                    <td><%= team.overview %></td>
-                </tr>
-              <% end %>
+                <% @teams.each do |team| %>
+                <% #binding.pry %>
+                  <tr>
+              　    <td><%= team.game_name %></td>
+                   <td><%= link_to team.team_name, my_team_path(team) %></td>
+          　        <td><%= team.user.name %></td>
+        　          <td><%= team.overview %></td>
+                  </tr>
+                <% end %>
            </tbody>
          </table>
           <%= link_to(new_team_path) do %>
           <button class="btn1" >チーム作成</button>
           <% end %>
-　　 </div>
+    </div>
   </div>
 </div>

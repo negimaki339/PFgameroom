@@ -2,7 +2,8 @@ class My::EventsController < ApplicationController
 
   def index
      @team = Team.find(params[:team_id])
-     @events = Event.where(team_id:@team.id)#チームのチームIDをもってるイベントを条件指定で表示する
+     @events = Event.where(team_id:@team.id).reverse#チームのチームIDをもってるイベントを条件指定で表示する
+     @current_user_member = current_user.members.find_by(team_id: @team.id)
   end
 
   def show

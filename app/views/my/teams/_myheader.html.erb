@@ -1,14 +1,14 @@
 <myheader>
   <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
-    <div class="container">
-      <a class="navbar-brand" ><span>マイチーム</span></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <div class="">
+      <a class="navbar-brand" ></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown__1" aria-controls="navbarNavDropdown__1" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <div class="collapse navbar-collapse" id="navbarNavDropdown__1">
         <ul class="navbar-nav ml-auto">
 
-          <li><%= link_to team.team_name,my_team_path(team), class: 'fas fa-home nav-link text-light' %></li>
+          <li><%= link_to 'チーム掲示板',my_team_path(team), class: 'fas fa-home nav-link text-light' %></li>
           <li><%= link_to 'チームチャット',my_team_chats_path(team), class: "fas fa-comment nav-link text-light" %></li>
           <li><%= link_to 'チームイベント',my_team_events_path(team), class: 'fas fa-bullhorn nav-link text-light' %></li>
           <li><%= link_to 'メンバー一覧',my_team_members_path(team), class: 'fas fa-address-book nav-link text-light' %></li>

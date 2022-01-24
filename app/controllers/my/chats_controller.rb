@@ -2,7 +2,9 @@ class My::ChatsController < ApplicationController
 
   def index
     @team = Team.find(params[:team_id])
-    @chats = Chat.where(team_id:@team.id)
+    @chats = Chat.where(team_id:@team.id).reverse
+    @current_user_member = current_user.members.find_by(team_id: @team.id)
+
   end
 
   def create
@@ -12,13 +14,16 @@ class My::ChatsController < ApplicationController
     comment.team_id = @team.id
     comment.member_id = @member.id
     comment.save
-    redirect_to my_team_chats_path(@team.id)
+    @chats = Chat.where(team_id:@team.id).reverse
+    # redirect_to my_team_chats_path(@team.id)
   end
 
   def destroy
     chatcomment = Chat.find_by(id: params[:id])
     chatcomment.destroy
-    redirect_to my_team_chats_path(params[:team_id])
+    @team = Team.find(params[:team_id])
+    @chats = Chat.where(team_id: @team.id).reverse
+    # redirect_to my_team_chats_path(params[:team_id])
   end
 
   private

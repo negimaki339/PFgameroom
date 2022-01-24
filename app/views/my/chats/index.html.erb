@@ -6,24 +6,26 @@
     </div>
         <div class='col-md-9'>
              <%= render 'my/teams/myheader', team: @team %>
-        チャット一覧
-              <% @chats.each do |chat| %>
-
-                  <%= attachment_image_tag(chat.member.user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg") %>
-                  <%= chat.member.user.name %>
-                  <%= chat.created_at.strftime('%Y/%m/%d') %>
-                  <%= chat.comment %>
-
-                        <% if chat.member.user == current_user %>
-                         <%= link_to "Destroy",my_team_chat_path(@team.id, chat.id), method: :delete, remote: true, class: "btn btn-sm btn-danger" %>
-                        <% end %>
-
-              <% end %>
-
-              <%= form_with(model: Chat.new,url:my_team_chats_path(@team.id)) do |f| %>
-              <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
+        <h2>チャット一覧</h2>
+          <table class="table">
+          <thead>
+                <tr>
+                  <th></th>
+                  <th>メンバー名</th>
+                  <th>コメント時間</th>
+                  <th>コメント</th>
+                </tr>
+          </thead>
+          <tbody id="chat-log">
+            <%= render partial: 'chats', locals: {chats: @chats} %>
+          </tbody>
+          </table>
+          <% unless @current_user_member.nil? %>
+            <%= form_with model: Chat.new, url:my_team_chats_path(@team.id), remote: true do |f| %>
+              <%= f.text_area :comment, rows:'5', placeholder: "コメントをここに" %>
               <%= f.submit "送信" %>
-              <% end %>
+            <% end %>
+          <% end %>
         </div>
   </div>
 </div>

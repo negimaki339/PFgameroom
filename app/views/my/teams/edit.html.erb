@@ -25,4 +25,4 @@
   </div>
 
 <% end %>
-<%= link_to '削除', "/teams/#{@team.id}", method: :delete %>
+<%= link_to '削除', "/teams/#{@team.id}", method: :delete, data: { confirm: '本当にチームを削除しますか？' } %>

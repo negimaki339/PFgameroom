@@ -3,6 +3,7 @@ class My::MembersController < ApplicationController
   def index
     @team = Team.find(params[:team_id])
     @members = @team.member_list
+    @current_user_member = current_user.members.find_by(team_id: @team.id)
     #@user = User.find(params[:team_id])
     #@user = @team.user
     #@member = @team.current_user
@@ -38,7 +39,8 @@ class My::MembersController < ApplicationController
 
    def destroy
     @team = Team.find(params[:team_id])
-    member = Member.find(params[:team_id])
+    member = Member.find(params[:id])
+
     member.destroy
     redirect_to my_team_members_path(@team)
    end

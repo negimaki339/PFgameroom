@@ -1,5 +1,23 @@
-
-
-<h1>GAMEROOMへようこそ</h1>
-ここではゲームユーザーが仲間を作り、<br>
-仲間とより楽しくゲームができる場です。
+<div class="container">
+ <div class="row">
+   <div class='mx-auto col-11 col-sm-10 col-lg-8 col-xl-6'>
+     <div class='title1'>
+         <h1>GAMEROOMへようこそ<i class="fa-solid fa-alien-8bit"></i>!!</h1>
+     </div>
+     <div class='text1'>
+       チームを作り盛り上がろう！！<br>
+     </div>
+     <div class='text1'>
+       同じ趣味を持った仲間と語り合おう！！
+     </div>
+     <div class="btn-wrapper col-6 mx-auto">
+        <div class="row">
+          <%= link_to 'ログイン',new_user_session_path, class: "btn btn-info btn-sm btn-block mb-3 sign_in" %>
+        </div>
+        <div class="row">
+          <%= link_to '新規登録',new_user_registration_path, class: "btn btn-success btn-sm btn-block sign_up" %>
+        </div>
+     </div>
+   </div>
+ </div>
+</div>
