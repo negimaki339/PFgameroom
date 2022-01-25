@@ -35,7 +35,7 @@
               </tbody>
          </table>
         <% if @team.user == current_user %>
-        <td><%= link_to 'Edit', edit_my_team_path(@team) %></td>
+        <td><%= link_to 'チーム編集', edit_my_team_path(@team), class: 'btn btn-success' %></td>
         <% end %>
     </div>
   </div>

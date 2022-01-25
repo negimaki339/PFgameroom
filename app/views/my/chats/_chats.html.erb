@@ -1,7 +1,7 @@
 <% chats.each do |chat| %>
   <tr>
     <% if !chat.member.blank? %>
-      <td><%= attachment_image_tag(chat.member.user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg") %></td>
+      <td><%= attachment_image_tag(chat.member.user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg" ,size:'50x50' ) %></td>
       <td><%= chat.member.user.name %></td>
       <td><%= chat.created_at.strftime('%Y/%m/%d') %></td>
       <td><%= chat.comment %></td>

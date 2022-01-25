@@ -5,18 +5,20 @@
         <%= render 'users/info', user: current_user %>
     </div>
         <div class='col-md-9'>
-            <table class="table table-bordered">
+            <table class="table table">
               <h1 class="my-3 ml-3">ユーザー情報</h1>
               <thead>
                  <tr>
-                    <th>イメージ画像</th>
-                    <th>ユーザー名</th>
+                    <td></td>
+                    <td><%= attachment_image_tag(@user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg") %></td>
+                    <td></td>
                  </tr>
               </thead>
                  <tbody>
                    <tr>
-                    <td><%= attachment_image_tag(@user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg") %></td>
+                    <th>ユーザー名</th>
                     <td><%= @user.name %></td>
+                    <td></td>
                    </tr>
                   </tbody>
               </table>
@@ -32,6 +34,7 @@
                 </tr>
               </tbody>
             </table>
+            <%= link_to '戻る', :back, class:'back-btn' %>
       </div>
   </div>
 </div>

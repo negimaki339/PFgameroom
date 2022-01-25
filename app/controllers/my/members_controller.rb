@@ -1,5 +1,5 @@
 class My::MembersController < ApplicationController
-
+  before_action :authenticate_user!
   def index
     @team = Team.find(params[:team_id])
     @members = @team.member_list

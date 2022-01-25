@@ -9,4 +9,8 @@ class User < ApplicationRecord
          has_many :members, dependent: :destroy
 
          has_many :join_teams, through: :members, source: :team
+
+         validates :name, length: {maximum: 20, minimum: 1}, uniqueness: true
+         validates :profile, length: { maximum: 500 }
+
 end

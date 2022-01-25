@@ -3,8 +3,9 @@
     <div class='col-md-3'>
       <h2>User info</h2>
       <%= render 'users/info', user: current_user %>
-　　</div>
-　　<div class="col-sm-8 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+    </div>
+    <div class="col-sm-8 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+    <%= render 'teams/error', team: @team %>
         <div class="title3"><h1>新規チーム作成</h1></div>
        <%= form_with model: @team, local:true do |f| %>
         <div class="form-group">
@@ -17,7 +18,7 @@
         </div>
         <div class="form-group">
           <%= f.label :メンバー募集文 %>
-          <%= f.text_area :team_explanation, class: "form-control introduction" %>
+          <%= f.text_area :team_explanation, rows:'5',  class: "form-control introduction" %>
         </div>
         <%= hidden_field_tag :team_id, @team.id %>
           <%= f.radio_button :is_join, 'free'  %>

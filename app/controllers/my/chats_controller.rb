@@ -1,8 +1,8 @@
 class My::ChatsController < ApplicationController
-
+  before_action :authenticate_user!
   def index
     @team = Team.find(params[:team_id])
-    @chats = Chat.where(team_id:@team.id).reverse
+    @chats = Chat.where(team_id:@team.id).page(params[:page]).per(8).reverse_order
     @current_user_member = current_user.members.find_by(team_id: @team.id)
 
   end

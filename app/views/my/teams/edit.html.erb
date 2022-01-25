@@ -1,28 +1,34 @@
-マイチーム編集画面
-<%= form_with model:@team,local:true do |f| %>
-<div class="form-group">
-    <%= f.label :ゲーム名 %>
-    <%= f.text_field :game_name %>
+<div class='container'>
+  <div class='row'>
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <h2>マイチーム編集画面</h2>
+        <%= render 'teams/error', team: @team %>
+        <%= form_with model:@team,local:true do |f| %>
+        <div class="form-group">
+          <%= f.label :ゲーム名 %>
+          <%= f.text_field :game_name, class: "form-control name" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :チーム名 %>
+          <%= f.text_field :team_name, class: "form-control name" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :チーム募集文 %>
+          <%= f.text_area :team_explanation, rows:'5', class: "form-control introduction" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :チーム掲示板 %>
+          <%= f.text_area :overview, rows:'5', class: "form-control introduction" %>
+        </div>
+          <%= f.radio_button :is_join, 'free'  %>
+          <%= f.label :is_join, "自由加入制" %>
+          <%= f.radio_button :is_join, 'approval' %>
+          <%= f.label :is_join, "承認制" %>
+        <div class="form-group">
+          <%= f.submit "チームを更新", class: 'btn btn-success' %>
+        </div>
+      <% end %>
+      <%= link_to 'チームを削除', "/teams/#{@team.id}", method: :delete, data: { confirm: '本当にチームを削除しますか？' }, class: "btn btn-danger" %>
+    </div>
   </div>
-  <div class="form-group">
-    <%= f.label :チーム名 %>
-    <%= f.text_field :team_name %>
-  </div>
-  <div class="form-group">
-    <%= f.label :チーム募集文 %>
-    <%= f.text_area :team_explanation %>
-  </div>
-  <div class="form-group">
-    <%= f.label :チーム概要 %>
-    <%= f.text_area :overview %>
-  </div>
-    <%= f.radio_button :is_join, 'free'  %>
-    <%= f.label :is_join, "自由加入制" %>
-    <%= f.radio_button :is_join, 'approval' %>
-    <%= f.label :is_join, "承認制" %>
-  <div class="form-group">
-    <%= f.submit "更新", class: 'btn btn-success' %>
-  </div>
-
-<% end %>
-<%= link_to '削除', "/teams/#{@team.id}", method: :delete, data: { confirm: '本当にチームを削除しますか？' } %>
+</div>

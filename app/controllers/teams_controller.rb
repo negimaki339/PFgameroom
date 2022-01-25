@@ -1,5 +1,5 @@
 class TeamsController < ApplicationController
-
+before_action :authenticate_user!
   def index
     @teams = Team.all.reverse #反転　新しい順から表示
 
@@ -25,29 +25,28 @@ class TeamsController < ApplicationController
        @member.team_id = @team.id
        @member.is_approval = 0
        @member.save
-      redirect_to teams_path(@team)
+      redirect_to teams_path(@team), notice: "チームを作成しました"
     else
-      @teams = Team.all
-      render 'index'
+      render 'new'
     end
   end
 
-  def edit
-    @team = Team.find(params[:id])
-    if @team.user == current_user
-      render 'edit'
-    else
-      redirect_to teams_path
-    end
+  # def edit  editのみmy_teamコントローラーで対応
+  #   @team = Team.find(params[:id])
+  #   if @team.user == current_user
+  #     render 'edit'
+  #   else
+  #     redirect_to teams_path
+  #   end
 
-  end
+  # end
 
   def update
     @team = Team.find(params[:id])
     if @team.update(team_params)
-      redirect_to my_team_path(@team), notice: "You have updated book successfully."
+      redirect_to my_team_path(@team), notice: "チーム情報を更新しました"
     else
-      render "edit"
+      render "my/teams/edit"
     end
   end
 
@@ -56,7 +55,7 @@ class TeamsController < ApplicationController
      pp @team,current_user
     if @team.user_id == current_user.id
      @team.destroy
-     redirect_to my_teams_path(id:current_user)
+     redirect_to my_teams_path(id:current_user), alert: "チームを削除しました"
     end
   end
 

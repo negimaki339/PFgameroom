@@ -12,17 +12,17 @@
                 <th>ゲーム名</th>
                 <th>チーム名</th>
                 <th>リーダー名</th>
-                <th>チーム概要</th>
+                <th></th>
             </tr>
           </thead>
            <tbody>
                 <% @teams.each do |team| %>
                 <% #binding.pry %>
                   <tr>
-              　    <td><%= team.game_name %></td>
-                   <td><%= link_to team.team_name, my_team_path(team) %></td>
-          　        <td><%= team.user.name %></td>
-        　          <td><%= team.overview %></td>
+                   <td><%= team.game_name %></td>
+                   <td><%= team.team_name %></td>
+                   <td><%= team.user.name %></td>
+                   <td><%= link_to "チームホームへ", my_team_path(team), class: 'btn btn-secondary' %></td>
                   </tr>
                 <% end %>
            </tbody>

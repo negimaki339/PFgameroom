@@ -13,7 +13,6 @@
                         <th>開始時刻</th>
                         <th>イベント名</th>
                         <th>開催者</th>
-                        <th>イベント説明</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -21,14 +20,25 @@
                         <td><%= @event.time.strftime("%Y年%m月%d日%H時%M分") %></td>
                         <td><%= @event.event_name %></td>
                         <td><%= @event.member.user.name %></td>
-                        <td><%= @event.event_explanation %></td>
                       </tr>
                     </tbody>
                 </table>
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>イベント説明</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><%= @event.event_explanation %></td>
+                    </tr>
+                  </tbody>
+                </table>
                 <% if @event.member.user == current_user %>
-                <%= link_to 'Edit', edit_my_team_event_path(@team,@event) %>
+                <%= link_to '編集', edit_my_team_event_path(@team,@event), class: 'btn btn-success' %>
 
-                <%= link_to '削除', my_team_event_path(@team,@event), method: :delete %>
+                <%= link_to '削除', my_team_event_path(@team,@event), method: :delete, class: "btn btn-danger"  %>
                 <% end %>
         </div>
   </div>

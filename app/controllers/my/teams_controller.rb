@@ -1,5 +1,5 @@
 class My::TeamsController < ApplicationController
-
+  before_action :authenticate_user!
   def index
     @teams = Team.includes(:members).where(members: {is_approval: 0, user_id: current_user.id}).reverse # チームテーブルとmembersテーブルを結合してmembersテーブルに含まれるユーザがcurrent_userでかつ承認済みの値を取得する
 #    @teams = current_user.join_teams #今のユーザーがメンバーとして加入しているチームを表示する
@@ -21,25 +21,22 @@ class My::TeamsController < ApplicationController
     end
   end
 
-  def update
-    @team = Team.find(params[:id])
-    if @team.update(team_params)
-      redirect_to my_team_path(@team), notice: "You have updated book successfully."
-    else
-      render "edit"
-    end
-  end
+  # def update
+  #   @team = Team.find(params[:id])
+  #   if @team.update(team_params)
+  #     redirect_to my_team_path(@team), notice: "You have updated book successfully."
+  #   else
+  #     render "edit"
+  #   end
+  # end
 
-  def out
-  end
-
-   def destroy
-     team = team.find(params[:id])
-    if team.user_id == current_user.id
-     team.destroy
-     redirect_to myteam_path(@team)
-    end
-   end
+  # def destroy
+  #   team = team.find(params[:id])
+  #   if team.user_id == current_user.id
+  #   team.destroy
+  #   redirect_to myteam_path(@team)
+  #   end
+  # end
 
   private
 

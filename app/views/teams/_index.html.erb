@@ -1,23 +1,34 @@
- <table class="table">
-      <thead>
-        <tr>
+  <% teams.each do |team| %>
+   <div class="team1">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
             <th>ゲーム名</th>
             <th>チーム名</th>
             <th>リーダー名</th>
-            <th>チーム説明</th>
             <th>加入ステータス</th>
-        </tr>
-      </thead>
-       <% teams.each do |team| %>
-       <%# binding.pry %>
-        <tbody>
-          <tr>
-            <td><%= team.game_name %></td>
-            <td><%= link_to team.team_name, team_path(team) %></td>
-            <td><%= team.user.name %></td>
-            <td><%= team.team_explanation %></td>
-            <td><%= team.is_join_i18n %></td>
           </tr>
-        </tbody>
-       <% end %>
+        </thead>
+         <%# binding.pry %>
+         <tbody>
+           <tr>
+             <th><%= team.game_name %></th>
+             <th><%= team.team_name %></th>
+             <th><%= team.user.name %></th>
+             <th><%= team.is_join_i18n %></th>
+           </tr>
+         </tbody>
       </table>
+        <div class=team1_table>
+        <div class=team1_table_title>
+         <p>メンバー募集文</p>
+        </div>
+        <div class="team1_table_text">
+         <p><%= team.team_explanation %></p>
+        </div>
+        <div class="team1_table_btn">
+          <%= link_to "チームの詳細へ", team_path(team) %>
+        </div>
+   </div>
+  </div>
+ <% end %>
