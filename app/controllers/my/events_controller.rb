@@ -1,8 +1,9 @@
 class My::EventsController < ApplicationController
   before_action :authenticate_user!
+  before_action :member!
   def index
      @team = Team.find(params[:team_id])
-     @events = Event.where(team_id:@team.id).reverse#チームのチームIDをもってるイベントを条件指定で表示する
+     @events = Event.where(team_id:@team.id).page(params[:page]).per(6).reverse_order#チームのチームIDをもってるイベントを条件指定で表示する
      @current_user_member = current_user.members.find_by(team_id: @team.id)
   end
 
@@ -59,6 +60,11 @@ private
 
   def event_params
     params.require(:event).permit(:event_name, :event_explanation, :time)
+  end
+
+  def member!
+    # Memberテーブルに指定されたＩＤと自分が存在しているかチェック
+    redirect_to(my_teams_path()) unless Member.where(team_id: params[:team_id], user_id: current_user.id).exists?
   end
 end
 

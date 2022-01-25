@@ -1,5 +1,6 @@
 class My::MembersController < ApplicationController
   before_action :authenticate_user!
+  before_action :member!, except:[:create]
   def index
     @team = Team.find(params[:team_id])
     @members = @team.member_list
@@ -50,6 +51,10 @@ class My::MembersController < ApplicationController
   #def member_params
     #params.require(:member).permit(:is_approval)
  # end
+ def member!
+    # Memberテーブルに指定されたＩＤと自分が存在しているかチェック
+    redirect_to(my_teams_path()) unless Member.where(team_id: params[:team_id], user_id: current_user.id).exists?
+  end
 
 
 

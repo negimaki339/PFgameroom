@@ -36,12 +36,12 @@
             <p>イベント説明</p>
           </div>
           <div class="event_text">
-            <%= event.event_explanation %>
+            <%= simple_format(event.event_explanation) %>
           </div>
          </div>
         <% end %>
       <% end %>
-
+     <%= paginate @events %>
     </div>
   </div>
 </div>

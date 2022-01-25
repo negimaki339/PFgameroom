@@ -1,8 +1,9 @@
 class My::ChatsController < ApplicationController
   before_action :authenticate_user!
+  before_action :member!
   def index
     @team = Team.find(params[:team_id])
-    @chats = Chat.where(team_id:@team.id).page(params[:page]).per(8).reverse_order
+    @chats = Chat.where(team_id:@team.id).page(params[:page]).per(30).reverse_order
     @current_user_member = current_user.members.find_by(team_id: @team.id)
 
   end
@@ -30,6 +31,11 @@ class My::ChatsController < ApplicationController
 
   def chat_params
     params.require(:chat).permit(:comment)
+  end
+
+  def member!
+    # Memberテーブルに指定されたＩＤと自分が存在しているかチェック
+    redirect_to(my_teams_path()) unless Member.where(team_id: params[:team_id], user_id: current_user.id).exists?
   end
 
 end

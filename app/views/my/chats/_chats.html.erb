@@ -1,13 +1,18 @@
-<% chats.each do |chat| %>
-  <tr>
-    <% if !chat.member.blank? %>
-      <td><%= attachment_image_tag(chat.member.user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg" ,size:'50x50' ) %></td>
-      <td><%= chat.member.user.name %></td>
-      <td><%= chat.created_at.strftime('%Y/%m/%d') %></td>
-      <td><%= chat.comment %></td>
-      <% if chat.member.user == current_user %>
-        <td><%= link_to "Destroy",my_team_chat_path(@team.id, chat.id), method: :delete, data: { confirm: '本当にコメントを削除しますか？' }, remote: true, class: "btn btn-sm btn-danger" %></td>
+<div class='a'>
+  <% chats.each do |chat| %>
+    <tr>
+      <% if !chat.member.blank? %>
+        <td class=member_image><%= attachment_image_tag(chat.member.user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg" ,size:'50x50' ) %></td>
+        <td class=member_name><%= chat.member.user.name %></br>
+          <a class="time">
+            <%= chat.created_at.strftime('%-Y/%-m/%-d/ %-H時%-M分') %>
+          </a>
+        </td>
+        <td class=member_comment><%= simple_format(chat.comment) %></td>
+        <% if chat.member.user == current_user %>
+          <td><%= link_to "Destroy",my_team_chat_path(@team.id, chat.id), method: :delete, data: { confirm: '本当にコメントを削除しますか？' }, remote: true, class: "btn btn-sm btn-danger" %></td>
+        <% end %>
       <% end %>
-    <% end %>
-  </tr>
-<% end %>
+    </tr>
+　<% end %>
+</div>

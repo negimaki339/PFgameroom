@@ -1,7 +1,7 @@
 class TeamsController < ApplicationController
 before_action :authenticate_user!
   def index
-    @teams = Team.all.reverse #反転　新しい順から表示
+    @teams = Team.all.page(params[:page]).per(6).reverse_order #反転　新しい順から表示
 
 
   end

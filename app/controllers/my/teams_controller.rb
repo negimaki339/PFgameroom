@@ -1,5 +1,6 @@
 class My::TeamsController < ApplicationController
   before_action :authenticate_user!
+  before_action :member!, except: [:index]
   def index
     @teams = Team.includes(:members).where(members: {is_approval: 0, user_id: current_user.id}).reverse # チームテーブルとmembersテーブルを結合してmembersテーブルに含まれるユーザがcurrent_userでかつ承認済みの値を取得する
 #    @teams = current_user.join_teams #今のユーザーがメンバーとして加入しているチームを表示する
@@ -43,4 +44,11 @@ class My::TeamsController < ApplicationController
   def team_params
     params.require(:team).permit(:team_name, :game_name, :team_explanation, :overview, :is_join )
   end
+
+  def member!
+    # Memberテーブルに指定されたＩＤと自分が存在しているかチェック
+    redirect_to(my_teams_path()) unless Member.where(team_id: params[:id], user_id: current_user.id).exists?
+  end
+
+
 end

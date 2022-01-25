@@ -1,3 +1,20 @@
 // Place all the styles related to the chats controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+a.time {
+    font-size: 10px;
+}
+
+td.member_image {
+    width: 5%;
+}
+
+td.member_name{
+    width: 20%;
+}
+
+td.member_comment{
+ width: auto;
+}

@@ -25,12 +25,12 @@
         <table class="table table-bordered">
               <thead>
                 <tr>
-                 <th>チーム概要</th>
+                 <th>チーム掲示板</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td><%= @team.overview %></td>
+                  <td><%= simple_format(@team.overview) %></td>
                 </tr>
               </tbody>
          </table>

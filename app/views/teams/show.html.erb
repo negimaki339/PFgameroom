@@ -30,7 +30,7 @@
               </thead>
               <tbody>
                 <tr>
-                  <td><%= @team.team_explanation %></td>
+                  <td><%= simple_format(@team.team_explanation) %></td>
                 </tr>
               </tbody>
             </table>
@@ -41,7 +41,7 @@
             <% else %>
             <%= form_with(model: [@team, @member],url: my_team_members_path(@team) ) do |f| %>
             <%= hidden_field_tag :team_id, @team.id %>
-            <%= f.submit "メンバーになる" %>
+            <%= f.submit "メンバー申請する" %>
             <% end %>
           <% end %>
 
