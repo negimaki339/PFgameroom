@@ -1,35 +1,32 @@
 <div class='container px-5 px-sm-0'>
   <div class='row'>
     <div class='col-md-3'>
-        <h2>User info</h2>
-        <%= render 'users/info', user: current_user %>
+      <h2>User info</h2>
+      <%= render 'users/info', user: current_user %>
     </div>
-        <div class='col-md-9'>
-             <%= render 'my/teams/myheader', team: @team %>
+    <div class='col-md-9'>
+      <%= render 'my/teams/myheader', team: @team %>
         <h2 class="my-3 ml-3">チャット一覧</h2>
         <% unless @current_user_member.nil? %>
-            <%= form_with model: Chat.new, url:my_team_chats_path(@team.id), remote: true do |f| %>
-              <%= f.text_area :comment, placeholder: "コメントをここに" , class: "form-control introduction" %>
+          <%= form_with model: Chat.new, url:my_team_chats_path(@team.id), remote: true do |f| %>
+            <%= f.text_area :comment, placeholder: "コメントをここに" , class: "form-control introduction" %>
               <%= f.submit "送信する", class: 'btn btn-success' %>
-            <% end %>
           <% end %>
-
-
-          <table class="table">
+        <% end %>
+        <table class="table">
           <thead>
-                <tr>
-                  <th></th>
-                  <th>メンバー名</th>
-                  <th>コメント</th>
-                  <th></th>
-                </tr>
+            <tr>
+              <th></th>
+              <th>メンバー名</th>
+              <th>コメント</th>
+              <th></th>
+            </tr>
           </thead>
           <tbody id="chat-log">
             <%= render partial: 'chats', locals: {chats: @chats} %>
           </tbody>
-          </table>
-          <%= paginate @chats %>
-
-        </div>
+        </table>
+      <%= paginate @chats %>
+    </div>
   </div>
 </div>

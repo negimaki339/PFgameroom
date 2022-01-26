@@ -1,45 +1,40 @@
 <div class='container px-5 px-sm-0'>
   <div class='row'>
     <div class='col-md-3'>
-        <h2>User info</h2>
-        <%= render 'users/info', user: current_user %>
+      <h2>User info</h2>
+      <%= render 'users/info', user: current_user %>
     </div>
-        <div class='col-md-9'>
-             <%= render 'my/teams/myheader', team: @team %>
-             <h1 class="my-3 ml-3">イベント一覧</h1>
-               <table class="table">
-                  <thead>
-                    <tr>
-                        <th>開始時刻</th>
-                        <th>イベント名</th>
-                        <th>開催者</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                      <tr>
-                        <td><%= @event.time.strftime("%Y年%m月%d日%H時%M分") %></td>
-                        <td><%= @event.event_name %></td>
-                        <td><%= @event.member.user.name %></td>
-                      </tr>
-                    </tbody>
-                </table>
-                <table class="table">
-                  <thead>
-                    <tr>
-                      <th>イベント説明</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td><%= simple_format(@event.event_explanation) %></td>
-                    </tr>
-                  </tbody>
-                </table>
-                <% if @event.member.user == current_user %>
-                <%= link_to '編集', edit_my_team_event_path(@team,@event), class: 'btn btn-success' %>
-
-                <%= link_to '削除', my_team_event_path(@team,@event), method: :delete, class: "btn btn-danger"  %>
-                <% end %>
-        </div>
+      <div class='col-md-9'>
+        <%= render 'my/teams/myheader', team: @team %>
+          <h1 class="my-3 ml-3">イベント一覧</h1>
+            <div class="event">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>開始時刻</th>
+                    <th>イベント名</th>
+                    <th>開催者</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><%= @event.time.strftime("%Y年%m月%d日%H時%M分") %></td>
+                    <td><%= @event.event_name %></td>
+                    <td><%= @event.member.user.name %></td>
+                  </tr>
+                </tbody>
+              </table>
+            <div class="event_title">
+              <p>イベント説明</p>
+            </div>
+            <div class="event_text">
+              <td><%= simple_format(@event.event_explanation) %></td>
+            </div>
+          </div>
+            <% if @event.member.user == current_user %>
+            <%= link_to '編集', edit_my_team_event_path(@team,@event), class: 'btn btn-success' %>
+            <%= link_to '削除', my_team_event_path(@team,@event), method: :delete, class: "btn btn-danger"  %>
+            <% end %>
+      </div>
   </div>
 </div>

@@ -1,50 +1,47 @@
 <div class='container px-5 px-sm-0'>
   <div class='row'>
     <div class='col-md-3'>
-        <h2>User info</h2>
-        <%= render 'users/info', user: current_user %>
+      <h2>User info</h2>
+      <%= render 'users/info', user: current_user %>
     </div>
-        <div class='col-md-9'>
-            <table class="table table-bordered">
-              <h1 class="my-3 ml-3">チーム詳細画面</h1>
-              <thead>
-                 <tr>
-                    <th>ゲーム名</th>
-                    <th>チーム名</th>
-                    <th>リーダー名</th>
-                 </tr>
-              </thead>
-                 <tbody>
-                   <tr>
-                    <td><%= @team.game_name %></td>
-                    <td><%= @team.team_name %></td>
-                    <td><%= @team.user.name %></td>
-                   </tr>
-                  </tbody>
-              </table>
-            <table class="table table-bordered">
-              <thead>
-                <tr>
-                 <th>チーム説明</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><%= simple_format(@team.team_explanation) %></td>
-                </tr>
-              </tbody>
-            </table>
-            <% if @team.members.find_by(user_id: current_user.id, is_approval: 0 ) %><!--チームの中のメンバー全員の中で自身のユーザーIDを取り、なおかつステータスが0(承認)ならtrue-->
+      <div class='col-md-9'>
+        <div class="team1">
+          <table class="table table-bordered">
+            <h1 class="my-3 ml-3">チーム詳細画面</h1>
+            <thead>
+              <tr>
+                <th>ゲーム名</th>
+                <th>チーム名</th>
+                <th>リーダー名</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><%= @team.game_name %></td>
+                <td><%= @team.team_name %></td>
+                <td><%= @team.user.name %></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class=team1_table>
+            <div class=team1_table_title>
+              <p>チーム説明</p>
+            </div>
+            <div class="team1_table_text">
+              <%= simple_format(@team.team_explanation) %>
+            </div>
+          </div>
+        </div>
+          <% if @team.members.find_by(user_id: current_user.id, is_approval: 0 ) %><!--チームの中のメンバー全員の中で自身のユーザーIDを取り、なおかつステータスが0(承認)ならtrue-->
             あなたはこのチームのメンバーです。
-            <% elsif @team.members.find_by(user_id: current_user.id, is_approval: 2 ) %><!--チームの中のメンバー全員の中で自身のユーザーIDを(find_by)取り、なおかつステータスが2(承認待ち)ならtrue-->
+          <% elsif @team.members.find_by(user_id: current_user.id, is_approval: 2 ) %><!--チームの中のメンバー全員の中で自身のユーザーIDを(find_by)取り、なおかつステータスが2(承認待ち)ならtrue-->
             加入申請中
-            <% else %>
+          <% else %>
             <%= form_with(model: [@team, @member],url: my_team_members_path(@team) ) do |f| %>
-            <%= hidden_field_tag :team_id, @team.id %>
-            <%= f.submit "メンバー申請する" %>
+              <%= hidden_field_tag :team_id, @team.id %>
+              <%= f.submit "メンバー申請する" %>
             <% end %>
           <% end %>
-
-        </div>
+      </div>
   </div>
 </div>

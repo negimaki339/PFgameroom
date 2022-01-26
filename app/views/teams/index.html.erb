@@ -5,10 +5,10 @@
       <%= render 'users/info', user: current_user %>
     </div>
     <div class='col-md-9'>
-    <h1 class="my-3 ml-3">チーム募集一覧ページ</h1>
-    <%= render 'searchs/form' %>
-
-    <%= render 'teams/index', teams: @teams %>
-    <%= paginate @teams %>
+      <h1 class="my-3 ml-3">チーム募集一覧ページ</h1>
+      <%= render 'searchs/form' %>
+      <%= render 'teams/index', teams: @teams %>
+      <%= paginate @teams %>
     </div>
   </div>
+</div>

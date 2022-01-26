@@ -1,32 +1,32 @@
 <div class='container px-5 px-sm-0'>
   <div class='row'>
-      <div class='col-md-3'>
-        <h2>User info</h2>
-        <%= render 'users/info', user: current_user %>
-      </div>
-    <div class='col-md-9'>
-      <%= render 'my/teams/myheader', team: @team %>
-      <h1>承認待ち一覧</h1>
-      <table class="table">
-          <thead>
+    <div class='col-md-3'>
+      <h2>User info</h2>
+      <%= render 'users/info', user: current_user %>
+    </div>
+      <div class='col-md-9'>
+        <%= render 'my/teams/myheader', team: @team %>
+        <h1>承認待ち一覧</h1>
+          <table class="table">
+            <thead>
               <tr>
-                  <th>メンバー名</th>
-                  <th>加入申請中</th>
+                <th>メンバー名</th>
+                <th>加入申請中</th>
               </tr>
-          </thead>
-          <tbody>
-             <% @members.each do |member| %>
-              <tr>
+            </thead>
+            <tbody>
+              <% @members.each do |member| %>
+                <tr>
                   <td><%= link_to member.user.name, user_path(member.user) %></td>
                   <td>
                     <%= link_to "承認", my_team_member_path(@team,member), method: :patch, class:"mini-green-link-btn font-bold text-line-none" %>
                     <%= link_to "却下", my_team_member_path(@team,member), method: :delete, class:"mini-red-link-btn font-bold text-line-none" %>
                     <!--パスにチームIDとメンバーIDを渡す-->
                   </td>
-              </tr>
+                </tr>
               <% end %>
-          </tbody>
-      </table>
-    </div>
-    </div>
-    </div>
+            </tbody>
+          </table>
+      </div>
+  </div>
+</div>

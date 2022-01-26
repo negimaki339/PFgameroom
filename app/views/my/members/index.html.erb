@@ -4,45 +4,44 @@
       <h2>User info</h2>
       <%= render 'users/info', user: current_user %>
     </div>
-     <div class='col-md-9'>
-       <%= render 'my/teams/myheader', team: @team %>
-        <table class="table">
-         <thead>
-           <tr>
-             <th>リーダー名</th>
+      <div class='col-md-9'>
+        <%= render 'my/teams/myheader', team: @team %>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>リーダー名</th>
+              </tr>
+            </thead>
+          <tbody>
+            <tr>
+              <td><%= @team.user.name %></td>
             </tr>
-         </thead>
-        <tbody>
-          <tr>
-            <td><%= @team.user.name %></td>
-          </tr>
-        </tbody>
-      </table>
-      <table class="table">
-       <thead>
-         <tr>
-           <th>メンバー名</th>
-           <th>加入日</th>
-         </tr>
-       </thead>
-       <tbody>
-        <% @members.each do |member| %>
-          <%# binding.pry %>
-          <tr>
-            <td><%= link_to member.user.name, user_path(member.user) %></td>
-            <td><%= member.created_at.strftime('%Y/%m/%d') %></td>
-             <% if @team.user == current_user && member.user != current_user %><!--チームのユーザーＩＤが自身ＩＤかつ(&&)メンバーのユーザーＩＤが自身のＩＤ以外(!=)ならtrue-->
-            <td><%= link_to "削除", my_team_member_path(@team.id,member.id), method: :delete, data: { confirm: '本当にチームメンバーから削除しますか？'}, class:"mini-red-link-btn font-bold text-line-none" %></td>
+          </tbody>
+          </table>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>メンバー名</th>
+                <th>加入日</th>
+              </tr>
+            </thead>
+          <tbody>
+            <% @members.each do |member| %>
+              <tr>
+                <td><%= link_to member.user.name, user_path(member.user) %></td>
+                <td><%= member.created_at.strftime('%Y/%m/%d') %></td>
+                  <% if @team.user == current_user && member.user != current_user %><!--チームのユーザーＩＤが自身ＩＤかつ(&&)メンバーのユーザーＩＤが自身のＩＤ以外(!=)ならtrue-->
+                    <td><%= link_to "削除", my_team_member_path(@team.id,member.id), method: :delete, data: { confirm: '本当にチームメンバーから削除しますか？'}, class:"mini-red-link-btn font-bold text-line-none" %></td>
+                  <% end %>
+              </tr>
             <% end %>
-          </tr>
-        <% end %>
-       </tbody>
-      </table>
-         <% if @team.user != current_user && !@current_user_member.nil? %>
-          <%= link_to my_team_member_path(@team, @current_user_member), method: :delete do |f| %>
-            <div class=link>チームから脱退する</div>
-          <% end %>
-         <% end %>   <!--メンターに質問する-->
-    </div>
+          </tbody>
+        </table>
+          <% if @team.user != current_user && !@current_user_member.nil? %>
+            <%= link_to my_team_member_path(@team, @current_user_member), method: :delete do |f| %>
+              <div class=link>チームから脱退する</div>
+            <% end %>
+          <% end %>   <!--メンターに質問する-->
+      </div>
   </div>
 </div>

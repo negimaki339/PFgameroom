@@ -1,6 +1,6 @@
 <div class='col-md-12'>
   <% teams.each do |team| %>
-   <div class="team1">
+    <div class="team1">
       <table class="table table-bordered">
         <thead>
           <tr>
@@ -10,27 +10,26 @@
             <th>加入ステータス</th>
           </tr>
         </thead>
-         <%# binding.pry %>
-         <tbody>
-           <tr>
-             <th><%= team.game_name %></th>
-             <th><%= team.team_name %></th>
-             <th><%= team.user.name %></th>
-             <th><%= team.is_join_i18n %></th>
-           </tr>
-         </tbody>
+        <tbody>
+          <tr>
+            <th><%= team.game_name %></th>
+            <th><%= team.team_name %></th>
+            <th><%= team.user.name %></th>
+            <th><%= team.is_join_i18n %></th>
+          </tr>
+        </tbody>
       </table>
         <div class=team1_table>
-        <div class=team1_table_title>
-         <p>メンバー募集文</p>
+          <div class=team1_table_title>
+           <p>メンバー募集文</p>
+          </div>
+          <div class="team1_table_text">
+           <p><%= simple_format(team.team_explanation) %></p>
+          </div>
+          <div class="team1_table_btn">
+            <%= link_to "チームの詳細へ", team_path(team) %>
+          </div>
         </div>
-        <div class="team1_table_text">
-         <p><%= simple_format(team.team_explanation) %></p>
-        </div>
-        <div class="team1_table_btn">
-          <%= link_to "チームの詳細へ", team_path(team) %>
-        </div>
-   </div>
-  </div>
- <% end %>
+      </div>
+  <% end %>
 </div>

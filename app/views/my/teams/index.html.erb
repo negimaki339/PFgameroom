@@ -4,32 +4,31 @@
       <h2>User info</h2>
       <%= render 'users/info', user: current_user %>
     </div>
-     <div class='col-md-9'>
+      <div class='col-md-9'>
         <table class="table">
           <h1 class="my-3 ml-3">マイチーム一覧ページ</h1>
           <thead>
             <tr>
-                <th>ゲーム名</th>
-                <th>チーム名</th>
-                <th>リーダー名</th>
-                <th></th>
+              <th>ゲーム名</th>
+              <th>チーム名</th>
+              <th>リーダー名</th>
+              <th></th>
             </tr>
           </thead>
-           <tbody>
-                <% @teams.each do |team| %>
-                <% #binding.pry %>
-                  <tr>
-                   <td><%= team.game_name %></td>
-                   <td><%= team.team_name %></td>
-                   <td><%= team.user.name %></td>
-                   <td><%= link_to "チームホームへ", my_team_path(team), class: 'btn btn-secondary' %></td>
-                  </tr>
-                <% end %>
-           </tbody>
-         </table>
+          <tbody>
+            <% @teams.each do |team| %>
+              <tr>
+                <td><%= team.game_name %></td>
+                <td><%= team.team_name %></td>
+                <td><%= team.user.name %></td>
+                <td><%= link_to "チームホームへ", my_team_path(team), class: 'btn btn-secondary' %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
           <%= link_to(new_team_path) do %>
-          <button class="btn1" >チーム作成</button>
+            <button class="btn1" >チーム作成</button>
           <% end %>
-    </div>
+      </div>
   </div>
 </div>
