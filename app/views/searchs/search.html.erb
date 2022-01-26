@@ -1,7 +1,13 @@
-<% if @model == 'team_name' %>
-  <h3>【チーム名の検索結果】検索ワード：<%= @content %></h3>
-  <%= render 'teams/index', teams: @records %>
-<% else @model == 'game_name' %>
-  <h3>【ゲーム名の検索結果】検索ワード：<%= @content %></h3>
-    <%= render 'teams/index', teams: @records %>
-<% end %>
+<div class='container px-5 px-sm-0'>
+  <div class='row'>
+    <div class='offset-md-2 col-md-8'>
+      <% if @model == 'team_name' %>
+        <h3>【チーム名の検索結果】検索ワード：<%= @content %></h3>
+        <%= render 'teams/index', teams: @records %>
+      <% else @model == 'game_name' %>
+        <h3>【ゲーム名の検索結果】検索ワード：<%= @content %></h3>
+        <%= render 'teams/index', teams: @records %>
+      <% end %>
+    </div>
+  </div>
+</div>
