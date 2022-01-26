@@ -10,7 +10,7 @@
           <thead>
             <tr>
               <td></td>
-              <td><%= attachment_image_tag(@user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg") %></td>
+              <td><%= attachment_image_tag(@user, :profile_image, :fill, 100, 100, fallback: asset_path("no_image.jpg")) %></td>
               <td></td>
             </tr>
           </thead>
