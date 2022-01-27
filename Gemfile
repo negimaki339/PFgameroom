@@ -80,6 +80,8 @@ gem "enum_help"
 gem 'rails-i18n'
 
 gem 'dotenv-rails'
+
+gem 'pry-byebug'
 group :production do
   gem 'mysql2'
 end

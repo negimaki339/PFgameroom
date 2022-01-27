@@ -11,7 +11,7 @@ class Team < ApplicationRecord
   validates :game_name, length: { maximum: 20 }, presence: true
   validates :team_explanation,length: { maximum: 500 }
   validates :overview,length: { maximum: 1000 }
-
+  validates :is_join,presence: true
 
   # 承認済みメンバー
   def member_list()

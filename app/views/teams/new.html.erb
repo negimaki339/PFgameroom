@@ -21,7 +21,7 @@
           <%= f.text_area :team_explanation, rows:'5',  class: "form-control introduction" %>
         </div>
         <%= hidden_field_tag :team_id, @team.id %>
-          <%= f.radio_button :is_join, 'free'  %>
+          <%= f.radio_button :is_join, 'free', checked: true  %>
           <%= f.label :is_join, "自由加入制" %>
           <%= f.radio_button :is_join, 'approval' %>
           <%= f.label :is_join, "承認制" %></br>
