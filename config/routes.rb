@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'home/about' => 'homes#about'
   get '/search' => 'searchs#search'
 
-  resources :users, only: [:show,:index,:edit,:update]
+  resources :users, only: [:show,:edit,:update]
   resources :teams
 
   namespace :my do
