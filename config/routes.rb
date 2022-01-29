@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'homes#top'
   get 'home/about' => 'homes#about'
   get '/search' => 'searchs#search'
+  get '/users' => redirect('/users/sign_up')
 
   resources :users, only: [:show,:edit,:update]
   resources :teams
