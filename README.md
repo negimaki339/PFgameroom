@@ -1,4 +1,4 @@
-#  GAMEROOM
+# GAMEROOM
 
 ## サイト概要
 ゲームコミュニティのSNSサイト<br>
